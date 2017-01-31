@@ -11,7 +11,16 @@
   (println "Crazy math (+ 1 (* 2 3) 2)" (+ 1 (* 2 3) 2))
   (println "'Panda' + '3D' + 'Course' = " (str "Panda" "3D " "Course"))
   (if (> 3 2)
-    (println "By Odin's bear!!")
+    (do (println "By Odin's bear!!")
+      (println "This is incredible")
+    )
     (println "You crazy Joke!")
   )
+  (when true
+    (println "everything went well until now")
+  )
+
+  (def my_first_var "My son loves Goku")
+  (when (= my_first_var "My son loves Goku")
+    (println "Kakarooooto!"))
 )
