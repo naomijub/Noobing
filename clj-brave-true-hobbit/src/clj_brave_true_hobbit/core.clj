@@ -35,8 +35,12 @@
     (defn +X
       [a b]
       (str a " and " b))
+    (defn power-up
+      [hobbit]
+      (str hobbit " will be Brave and True"))
     (println "The Hobbits are "(reduce +X hobbit-list))
     (println "The fellowship hobbits are " (reduce +X (let [hobbits (take 4 hobbit-list)]
       hobbits)))
     (println "The Hobbits body parts are " (hobbit-body hobbit-left-side))
+    (println (map power-up hobbit-list))
 )
