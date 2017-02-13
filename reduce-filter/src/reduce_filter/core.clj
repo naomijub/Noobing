@@ -1,6 +1,10 @@
 (ns reduce-filter.core
   (:gen-class))
 
+(defn even
+  ([] (even 2))
+  ([n] (cons n (lazy-seq (even (+ n 2))))))
+
 (defn -main
   "using reduce for now"
   [& args]
@@ -23,4 +27,6 @@
   (def b-students (filter #(and (< (get % 1) 9.0) (> (get % 1) 7.5)) seqrize))
   (println seqrize)
   (println "A grade students are: " crazy-num-vals)
-  (println "B grade students are: " b-students))
+  (println "B grade students are: " b-students)
+  (println "a few even numbers greater than 0: 'Crazy recursion' " (take 10 (even)))
+)

@@ -2,31 +2,30 @@
   (:gen-class))
 
 (def vampire-database
-  {034534 {:makes-blood-hunts? false, :has-pulse? true  :name "Paula"}
-   134563 {:makes-blood-hunts? false, :has-pulse? true  :name "Priscila"}
-   263456 {:makes-blood-hunts? true,  :has-pulse? false :name "Dracula"}
-   365466 {:makes-blood-hunts? true,  :has-pulse? true  :name "Mickey Mouse"}
-   445654 {:makes-blood-hunts? true,  :has-pulse? false :name "Lady Sith"}
-   554645 {:makes-blood-hunts? false,  :has-pulse? false :name "Darth Vader"}
-   666000 {:makes-blood-hunts? true,  :has-pulse? false :name "Bloodpool"}})
+  {0 {:makes-blood-hunts? false, :has-pulse? true  :name "Paula"}
+   1 {:makes-blood-hunts? false, :has-pulse? true  :name "Priscila"}
+   2 {:makes-blood-hunts? true,  :has-pulse? false :name "Dracula"}
+   3 {:makes-blood-hunts? true,  :has-pulse? true  :name "Mickey Mouse"}
+   4 {:makes-blood-hunts? true,  :has-pulse? false :name "Lady Sith"}
+   5 {:makes-blood-hunts? false,  :has-pulse? false :name "Darth Vader"}
+   6 {:makes-blood-hunts? true,  :has-pulse? false :name "Bloodpool"}})
 
 (defn vampire-details
   [rg]
-  (Thread/sleep 1000)
   (get vampire-database rg))
 
 (defn vampire?
   [person]
-  (and (:makes-blood-puns? person)
+  (and (:makes-blood-hunts? person)
        (not (:has-pulse? person))
        person))
 
 (defn find-vampires
   [rg]
-  (first (filter vampire?
-                 (map vampire-details rg))))
+  (filter vampire?
+   (map vampire-details rg)))
 
 (defn -main
   [& args]
-  (println (keys vampire-database))
-  (println (time vampire-details 666000)))
+  (def vamp-keys (keys vampire-database))
+  (println (find-vampires vamp-keys)))
